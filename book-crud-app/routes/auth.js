@@ -52,7 +52,7 @@ const authenticate = (req, res, next) => {
  *                   example: User registered successfully
  *                 token:
  *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *                   example: 
  *                 user:
  *                   $ref: '#/components/schemas/User'
  *       400:
@@ -114,10 +114,10 @@ router.post("/register", async (req, res) => {
  *             properties:
  *               email:
  *                 type: string
- *                 example: user@example.com
+ *                 example: 
  *               password:
  *                 type: string
- *                 example: password123
+ *                 example: 
  *     responses:
  *       200:
  *         description: Successful login
@@ -128,7 +128,7 @@ router.post("/register", async (req, res) => {
  *               properties:
  *                 token:
  *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *                   example: 
  *                 user:
  *                   $ref: '#/components/schemas/User'
  *       400:
@@ -193,7 +193,7 @@ router.post("/login", async (req, res) => {
  *               properties:
  *                 token:
  *                   type: string
- *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *                   example: 
  *                 user:
  *                   $ref: '#/components/schemas/User'
  *       404:
@@ -209,8 +209,8 @@ router.post("/test-token", async (req, res) => {
     res.json({
       token,
       user: {
-        id: 1,
-        email: "example@example.com",
+        id: ,
+        email: "",
         role: "admin",
       },
     });
