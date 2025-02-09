@@ -1,0 +1,32 @@
+.unauthorized-container {
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .unauthorized-container h1 {
+    color: #dc3545; 
+    margin-bottom: 20px;
+  }
+  
+  .unauthorized-container p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  
+  .unauthorized-container .btn {
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .unauthorized-container .btn:hover {
+    background-color: #0056b3; 
+  }

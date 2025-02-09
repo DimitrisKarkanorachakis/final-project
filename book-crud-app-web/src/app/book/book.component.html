@@ -1,0 +1,85 @@
+<div class="container" style="width: 800px; margin-top: 20px; margin-left: 30px; font-size: medium;">
+  <br>
+  <h3>Book application</h3>
+  
+  <!-- Title Input -->
+  <mat-form-field *ngIf="isAdmin" style="width: 180px;">
+    <input matInput [(ngModel)]="book.title" placeholder="Enter title" type="text">
+    <mat-icon fontIcon="book" matSuffix></mat-icon>
+  </mat-form-field>
+  
+  <!-- Author Input -->
+  <mat-form-field *ngIf="isAdmin" style="width: 180px; margin-left: 20px;">
+    <input matInput [(ngModel)]="book.author" placeholder="Enter author" type="text">
+    <mat-icon fontIcon="person" matSuffix></mat-icon>
+  </mat-form-field>
+  
+  <!-- Price Input -->
+  <mat-form-field *ngIf="isAdmin" style="width: 180px; margin-left: 20px;">
+    <input matInput [(ngModel)]="book.price" placeholder="Enter price" type="number">
+    <mat-icon fontIcon="attach_money" matSuffix></mat-icon>
+  </mat-form-field>
+  
+  <!-- Buttons -->
+  <button *ngIf="isAdmin" mat-flat-button (click)="addOrUpdateBook(book)" style="margin-left: 2px;">Insert</button>
+  <button *ngIf="isAdmin" mat-flat-button [ngStyle]="{'background-color': 'red', 'color': 'white'}" style="margin-left: 10px;">Cancel</button>
+  <br>
+  
+  <!-- Search Input -->
+  <mat-form-field style="width: 180px;">
+    <input matInput (input)="searchBook(filter.value)" placeholder="Search book" type="text" #filter>
+    <mat-icon fontIcon="search" matSuffix></mat-icon>
+  </mat-form-field>
+
+  <!-- Table -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!-- Book ID Column -->
+    <ng-container matColumnDef="bookId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Book ID </th>
+      <td mat-cell *matCellDef="let book"> {{book.bookId}} </td>
+    </ng-container>
+  
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let book"> {{book.title}} </td>
+    </ng-container>
+  
+    <!-- Author Column -->
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
+      <td mat-cell *matCellDef="let book"> {{book.author}} </td>
+    </ng-container>
+  
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+      <td mat-cell *matCellDef="let book"> ${{book.price}} </td>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+      <td mat-cell *matCellDef="let book">
+        <button *ngIf="isAdmin" mat-flat-button (click)="populateFormFields(book)" style="height: 30px;">Edit</button>
+      </td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
+      <td mat-cell *matCellDef="let book">
+        <button *ngIf="isAdmin" (click)="deleteBook(book.bookId)" mat-flat-button color="warn" 
+                style="height: 30px; background-color: red !important; color: white !important;">Delete</button>
+      </td>
+    </ng-container>
+
+    <!-- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let book; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of books">
+  </mat-paginator>
+</div>

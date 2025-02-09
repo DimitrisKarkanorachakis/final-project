@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center">Register</h3>
+          </div>
+          <div class="card-body">
+            <!-- Change from Marko  -->
+            <!-- <form (ngSubmit)="register()"> -->
+            <form [formGroup]="form">  
+                <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <!-- Change from Marko  -->
+                <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"> -->
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" formControlName="email">
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                 <!-- Change from Marko  -->
+                 <!-- <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password"> -->
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" formControlName="password">
+              </div>
+              <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                 <!-- Change from Marko  -->
+                <!-- <select class="form-control" id="role" name="role"> -->
+                <select class="form-control" id="role" name="role" formControlName="role">
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-primary w-100" (click)="register()">Register</button>
+              <!-- Change from Marko  -->
+              <!-- <button type="submit" class="btn btn-primary w-100">Register</button> -->
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
