@@ -209,7 +209,7 @@ router.post("/test-token", async (req, res) => {
     res.json({
       token,
       user: {
-        id: ,
+        id: 1,
         email: "",
         role: "admin",
       },
